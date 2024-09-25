@@ -63,34 +63,6 @@ static void MX_TIM2_Init(void);
 int current_display = 0;
 int led_buffer [4] = {1, 2, 3, 4};
 int index_led = 0;
-void ex02(){
-  HAL_GPIO_WritePin(GPIOA, EN0_Pin | EN1_Pin | EN2_Pin | EN3_Pin, GPIO_PIN_RESET);
-
-      // Switch between displays
-      switch (current_display)
-      {
-        case 0:
-          HAL_GPIO_WritePin(GPIOA, EN0_Pin, GPIO_PIN_SET); // Enable EN0 (first display)
-          display7SEG(1);  // Show number 1 on the first display
-          current_display = 1;
-          break;
-        case 1:
-          HAL_GPIO_WritePin(GPIOA, EN1_Pin, GPIO_PIN_SET); // Enable EN1 (second display)
-          display7SEG(2);  // Show number 2 on the second display
-          current_display = 2;
-          break;
-        case 2:
-          HAL_GPIO_WritePin(GPIOA, EN2_Pin, GPIO_PIN_SET); 
-          display7SEG(3);  
-          current_display = 3;
-          break;
-        case 3:
-          HAL_GPIO_WritePin(GPIOA, EN3_Pin, GPIO_PIN_SET); 
-          display7SEG(0); 
-          current_display = 0;
-          break;
-      }
-}
 
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 {
@@ -105,7 +77,8 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
     }
     if (timerFLag[1] == 1)
     {
-      ex02();
+      update7SEG(index_led++);
+      if(index_led >= 4) index_led = 0;
       set_timer(1, delay_led7seg_init); 
       timerFLag[1] = 0;                     
     }
