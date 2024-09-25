@@ -9,7 +9,7 @@
 #include "main.h"
 
 int timer_counter[10] = {0};
-int timerFLag[10] = {0};
+int timerFLag[10];
 
 
 void set_timer(int index, int counter)
@@ -20,7 +20,7 @@ void set_timer(int index, int counter)
 
 void timer_run()
 {
-    for(int i = 0; i < 2; i++){
+    for(int i = 0; i < 10; i++){
       if(timer_counter[i] > 0){
         timer_counter[i]--;
         if(timer_counter[i] <= 0){

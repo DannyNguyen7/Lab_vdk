@@ -36,7 +36,7 @@ void clear7SEG(){
 
 
 void update7SEG(int index){
-	 HAL_GPIO_WritePin(GPIOA, EN0_Pin | EN1_Pin | EN2_Pin | EN3_Pin, GPIO_PIN_RESET);
+	HAL_GPIO_WritePin(GPIOA, EN0_Pin | EN1_Pin | EN2_Pin | EN3_Pin, GPIO_PIN_RESET);
 	switch (index)
 	{
 		case 0:

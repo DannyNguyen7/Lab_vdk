@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\tiend\AppData\Local\Temp\cctgZOfO.s 			page 1
+ARM GAS  C:\Users\tiend\AppData\Local\Temp\ccW1st6J.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\tiend\AppData\Local\Temp\cctgZOfO.s 			page 1
   41              		.loc 1 15 29 view .LVU5
   42 0008 23F07F03 		bic	r3, r3, #127
   43 000c 1B04     		lsls	r3, r3, #16
-ARM GAS  C:\Users\tiend\AppData\Local\Temp\cctgZOfO.s 			page 2
+ARM GAS  C:\Users\tiend\AppData\Local\Temp\ccW1st6J.s 			page 2
 
 
   44 000e 1B0C     		lsrs	r3, r3, #16
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\tiend\AppData\Local\Temp\cctgZOfO.s 			page 1
   94 0008 FFF7FEFF 		bl	display7SEG
   95              	.LVL4:
   22:Core/Src/led7seg.c **** 		  HAL_Delay(1000);
-ARM GAS  C:\Users\tiend\AppData\Local\Temp\cctgZOfO.s 			page 3
+ARM GAS  C:\Users\tiend\AppData\Local\Temp\ccW1st6J.s 			page 3
 
 
   96              		.loc 1 22 5 discriminator 3 view .LVU16
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\tiend\AppData\Local\Temp\cctgZOfO.s 			page 1
  142              		.loc 1 27 3 is_stmt 0 view .LVU28
  143 0004 07E0     		b	.L10
  144              	.LVL9:
-ARM GAS  C:\Users\tiend\AppData\Local\Temp\cctgZOfO.s 			page 4
+ARM GAS  C:\Users\tiend\AppData\Local\Temp\ccW1st6J.s 			page 4
 
 
  145              	.L11:
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\tiend\AppData\Local\Temp\cctgZOfO.s 			page 1
  189              		.loc 1 34 29 view .LVU41
  190 0004 23F07F03 		bic	r3, r3, #127
  191 0008 1B04     		lsls	r3, r3, #16
-ARM GAS  C:\Users\tiend\AppData\Local\Temp\cctgZOfO.s 			page 5
+ARM GAS  C:\Users\tiend\AppData\Local\Temp\ccW1st6J.s 			page 5
 
 
  192 000a 1B0C     		lsrs	r3, r3, #16
@@ -276,13 +276,13 @@ ARM GAS  C:\Users\tiend\AppData\Local\Temp\cctgZOfO.s 			page 1
  222              		.cfi_offset 4, -8
  223              		.cfi_offset 14, -4
  224 0002 0446     		mov	r4, r0
-  39:Core/Src/led7seg.c **** 	 HAL_GPIO_WritePin(GPIOA, EN0_Pin | EN1_Pin | EN2_Pin | EN3_Pin, GPIO_PIN_RESET);
- 225              		.loc 1 39 3 is_stmt 1 view .LVU46
+  39:Core/Src/led7seg.c **** 	HAL_GPIO_WritePin(GPIOA, EN0_Pin | EN1_Pin | EN2_Pin | EN3_Pin, GPIO_PIN_RESET);
+ 225              		.loc 1 39 2 is_stmt 1 view .LVU46
  226 0004 0022     		movs	r2, #0
  227 0006 4FF47071 		mov	r1, #960
  228 000a 1448     		ldr	r0, .L24
  229              	.LVL14:
- 230              		.loc 1 39 3 is_stmt 0 view .LVU47
+ 230              		.loc 1 39 2 is_stmt 0 view .LVU47
  231 000c FFF7FEFF 		bl	HAL_GPIO_WritePin
  232              	.LVL15:
   40:Core/Src/led7seg.c **** 	switch (index)
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\tiend\AppData\Local\Temp\cctgZOfO.s 			page 1
  242              		.p2align 1
  243              	.L22:
   41:Core/Src/led7seg.c **** 	{
-ARM GAS  C:\Users\tiend\AppData\Local\Temp\cctgZOfO.s 			page 6
+ARM GAS  C:\Users\tiend\AppData\Local\Temp\ccW1st6J.s 			page 6
 
 
   42:Core/Src/led7seg.c **** 		case 0:
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\tiend\AppData\Local\Temp\cctgZOfO.s 			page 1
  276              		.loc 1 50 4 view .LVU56
  277 004a ECE7     		b	.L17
  278              	.L18:
-ARM GAS  C:\Users\tiend\AppData\Local\Temp\cctgZOfO.s 			page 7
+ARM GAS  C:\Users\tiend\AppData\Local\Temp\ccW1st6J.s 			page 7
 
 
   52:Core/Src/led7seg.c **** 			break;
@@ -402,28 +402,28 @@ ARM GAS  C:\Users\tiend\AppData\Local\Temp\cctgZOfO.s 			page 1
  318              		.file 6 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_gpio.h"
  319              		.file 7 "Core/Inc/led7seg.h"
  320              		.file 8 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h"
-ARM GAS  C:\Users\tiend\AppData\Local\Temp\cctgZOfO.s 			page 8
+ARM GAS  C:\Users\tiend\AppData\Local\Temp\ccW1st6J.s 			page 8
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 led7seg.c
-C:\Users\tiend\AppData\Local\Temp\cctgZOfO.s:18     .text.display7SEG:00000000 $t
-C:\Users\tiend\AppData\Local\Temp\cctgZOfO.s:24     .text.display7SEG:00000000 display7SEG
-C:\Users\tiend\AppData\Local\Temp\cctgZOfO.s:58     .text.display7SEG:0000001c $d
-C:\Users\tiend\AppData\Local\Temp\cctgZOfO.s:64     .text.control_countdown:00000000 $t
-C:\Users\tiend\AppData\Local\Temp\cctgZOfO.s:70     .text.control_countdown:00000000 control_countdown
-C:\Users\tiend\AppData\Local\Temp\cctgZOfO.s:118    .text.control_countup:00000000 $t
-C:\Users\tiend\AppData\Local\Temp\cctgZOfO.s:124    .text.control_countup:00000000 control_countup
-C:\Users\tiend\AppData\Local\Temp\cctgZOfO.s:172    .text.clear7SEG:00000000 $t
-C:\Users\tiend\AppData\Local\Temp\cctgZOfO.s:178    .text.clear7SEG:00000000 clear7SEG
-C:\Users\tiend\AppData\Local\Temp\cctgZOfO.s:200    .text.clear7SEG:00000010 $d
-C:\Users\tiend\AppData\Local\Temp\cctgZOfO.s:205    .text.update7SEG:00000000 $t
-C:\Users\tiend\AppData\Local\Temp\cctgZOfO.s:211    .text.update7SEG:00000000 update7SEG
-C:\Users\tiend\AppData\Local\Temp\cctgZOfO.s:238    .text.update7SEG:00000018 $d
-C:\Users\tiend\AppData\Local\Temp\cctgZOfO.s:242    .text.update7SEG:0000001c $t
-C:\Users\tiend\AppData\Local\Temp\cctgZOfO.s:290    .text.update7SEG:0000005c $d
-C:\Users\tiend\AppData\Local\Temp\cctgZOfO.s:301    .data.Led7Seg:00000000 Led7Seg
-C:\Users\tiend\AppData\Local\Temp\cctgZOfO.s:297    .data.Led7Seg:00000000 $d
+C:\Users\tiend\AppData\Local\Temp\ccW1st6J.s:18     .text.display7SEG:00000000 $t
+C:\Users\tiend\AppData\Local\Temp\ccW1st6J.s:24     .text.display7SEG:00000000 display7SEG
+C:\Users\tiend\AppData\Local\Temp\ccW1st6J.s:58     .text.display7SEG:0000001c $d
+C:\Users\tiend\AppData\Local\Temp\ccW1st6J.s:64     .text.control_countdown:00000000 $t
+C:\Users\tiend\AppData\Local\Temp\ccW1st6J.s:70     .text.control_countdown:00000000 control_countdown
+C:\Users\tiend\AppData\Local\Temp\ccW1st6J.s:118    .text.control_countup:00000000 $t
+C:\Users\tiend\AppData\Local\Temp\ccW1st6J.s:124    .text.control_countup:00000000 control_countup
+C:\Users\tiend\AppData\Local\Temp\ccW1st6J.s:172    .text.clear7SEG:00000000 $t
+C:\Users\tiend\AppData\Local\Temp\ccW1st6J.s:178    .text.clear7SEG:00000000 clear7SEG
+C:\Users\tiend\AppData\Local\Temp\ccW1st6J.s:200    .text.clear7SEG:00000010 $d
+C:\Users\tiend\AppData\Local\Temp\ccW1st6J.s:205    .text.update7SEG:00000000 $t
+C:\Users\tiend\AppData\Local\Temp\ccW1st6J.s:211    .text.update7SEG:00000000 update7SEG
+C:\Users\tiend\AppData\Local\Temp\ccW1st6J.s:238    .text.update7SEG:00000018 $d
+C:\Users\tiend\AppData\Local\Temp\ccW1st6J.s:242    .text.update7SEG:0000001c $t
+C:\Users\tiend\AppData\Local\Temp\ccW1st6J.s:290    .text.update7SEG:0000005c $d
+C:\Users\tiend\AppData\Local\Temp\ccW1st6J.s:301    .data.Led7Seg:00000000 Led7Seg
+C:\Users\tiend\AppData\Local\Temp\ccW1st6J.s:297    .data.Led7Seg:00000000 $d
 
 UNDEFINED SYMBOLS
 HAL_Delay

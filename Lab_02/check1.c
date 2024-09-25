@@ -67,7 +67,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
         if (segment_counter >= SEGMENT_SWITCH_INTERVAL)
         {
             // Disable all 7-segment displays before enabling the next one
-            HAL_GPIO_WritePin(GPIOA, EN0_Pin | EN1_Pin | EN2_Pin | En3_Pin, GPIO_PIN_RESET);
+            HAL_GPIO_WritePin(GPIOA, EN0_Pin | EN1_Pin | EN2_Pin | EN3_Pin, GPIO_PIN_RESET);
 
             // Switch between 7-segment displays
             switch (current_display)
@@ -88,7 +88,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
                     current_display = 3;
                     break;
                 case 3:
-                    HAL_GPIO_WritePin(GPIOA, En3_Pin, GPIO_PIN_SET); // Enable EN3 (fourth display)
+                    HAL_GPIO_WritePin(GPIOA, EN3_Pin, GPIO_PIN_SET); // Enable EN3 (fourth display)
                     display7SEG(0); // Show number 0 on the fourth display
                     current_display = 0;
                     break;
@@ -202,8 +202,8 @@ static void MX_GPIO_Init(void)
     __HAL_RCC_GPIOA_CLK_ENABLE();
     __HAL_RCC_GPIOB_CLK_ENABLE();
 
-    // Configure GPIOA: DOT_Pin, EN0_Pin, EN1_Pin, EN2_Pin, En3_Pin
-    GPIO_InitStruct.Pin = DOT_Pin | GPIO_PIN_4 | EN0_Pin | EN1_Pin | EN2_Pin | En3_Pin;
+    // Configure GPIOA: DOT_Pin, EN0_Pin, EN1_Pin, EN2_Pin, EN3_Pin
+    GPIO_InitStruct.Pin = DOT_Pin | GPIO_PIN_4 | EN0_Pin | EN1_Pin | EN2_Pin | EN3_Pin;
     GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
     GPIO_InitStruct.Pull = GPIO_NOPULL;
     GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
