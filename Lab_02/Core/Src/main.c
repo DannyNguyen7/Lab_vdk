@@ -23,6 +23,7 @@
 /* USER CODE BEGIN Includes */
 #include "led7seg.h"
 #include "timer.h"
+#include "led_matrix.c"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -32,7 +33,7 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-#define delay_led7seg_init 250
+#define delay_led7seg_init 11
 #define delay_led_init 1000
 /* USER CODE END PD */
 
@@ -119,7 +120,8 @@ int main(void)
   set_timer(1, delay_led7seg_init);
 
   set_timer(2, 1000);
-  timerFLag[2] = 1;
+  set_timer(3, 10);
+  // timerFLag[2] = 1;
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -154,6 +156,14 @@ int main(void)
       updateClockBuffer();
       // HAL_Delay(1000);
       set_timer(2, 1000);
+    }
+
+    if(timerFLag[3] == 1){
+      updateLEDMatrix(index_led_matrix++);
+      if(index_led_matrix >= MAX_LED_MATRIX){
+        index_led_matrix = 0;
+      }
+      set_timer(3, 10);
     }
     /* USER CODE END WHILE */
 

@@ -1,0 +1,401 @@
+ARM GAS  C:\Users\tiend\AppData\Local\Temp\ccf7DAI8.s 			page 1
+
+
+   1              		.cpu cortex-m3
+   2              		.arch armv7-m
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"led_matrix.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.display_row,"ax",%progbits
+  18              		.align	1
+  19              		.global	display_row
+  20              		.syntax unified
+  21              		.thumb
+  22              		.thumb_func
+  24              	display_row:
+  25              	.LVL0:
+  26              	.LFB66:
+  27              		.file 1 "Core/Src/led_matrix.c"
+   1:Core/Src/led_matrix.c **** #include "led_matrix.h"
+   2:Core/Src/led_matrix.c **** 
+   3:Core/Src/led_matrix.c **** const int MAX_LED_MATRIX = 8;
+   4:Core/Src/led_matrix.c **** int index_led_matrix = 0;
+   5:Core/Src/led_matrix.c **** uint8_t matrix_buffer[8] = {0b00000000, 0b11111100, 0b00010010, 0b00010001, 0b00010001, 0b00010010,
+   6:Core/Src/led_matrix.c **** 
+   7:Core/Src/led_matrix.c **** void updateLEDMatrix (int index ) {
+   8:Core/Src/led_matrix.c ****     HAL_GPIO_WritePin(GPIOA, ENM0_Pin|ENM1_Pin | ENM2_Pin|ENM3_Pin|ENM4_Pin|ENM5_Pin|ENM6_Pin|ENM7_
+   9:Core/Src/led_matrix.c ****     switch(index){
+  10:Core/Src/led_matrix.c ****         case 0:
+  11:Core/Src/led_matrix.c ****             HAL_GPIO_WritePin(ENM0_GPIO_Port, ENM0_Pin, RESET);
+  12:Core/Src/led_matrix.c ****             break;
+  13:Core/Src/led_matrix.c ****         case 1:
+  14:Core/Src/led_matrix.c ****             HAL_GPIO_WritePin(ENM1_GPIO_Port, ENM1_Pin, RESET);
+  15:Core/Src/led_matrix.c ****             break;        
+  16:Core/Src/led_matrix.c ****         case 2:
+  17:Core/Src/led_matrix.c ****             HAL_GPIO_WritePin(ENM2_GPIO_Port, ENM2_Pin, RESET);
+  18:Core/Src/led_matrix.c ****             break; 
+  19:Core/Src/led_matrix.c ****         case 3:
+  20:Core/Src/led_matrix.c ****             HAL_GPIO_WritePin(ENM3_GPIO_Port, ENM3_Pin, RESET);
+  21:Core/Src/led_matrix.c ****             break; 
+  22:Core/Src/led_matrix.c ****         case 4:
+  23:Core/Src/led_matrix.c ****             HAL_GPIO_WritePin(ENM4_GPIO_Port, ENM4_Pin, RESET);
+  24:Core/Src/led_matrix.c ****             break; 
+  25:Core/Src/led_matrix.c ****         case 5:
+  26:Core/Src/led_matrix.c ****             HAL_GPIO_WritePin(ENM5_GPIO_Port, ENM5_Pin, RESET);
+  27:Core/Src/led_matrix.c ****             break; 
+  28:Core/Src/led_matrix.c ****         case 6:
+  29:Core/Src/led_matrix.c ****             HAL_GPIO_WritePin(ENM6_GPIO_Port, ENM6_Pin, RESET);
+  30:Core/Src/led_matrix.c ****             break; 
+  31:Core/Src/led_matrix.c ****         case 7:
+ARM GAS  C:\Users\tiend\AppData\Local\Temp\ccf7DAI8.s 			page 2
+
+
+  32:Core/Src/led_matrix.c ****             HAL_GPIO_WritePin(ENM7_GPIO_Port, ENM7_Pin, RESET);
+  33:Core/Src/led_matrix.c ****             break;         
+  34:Core/Src/led_matrix.c ****         default:
+  35:Core/Src/led_matrix.c ****             break;
+  36:Core/Src/led_matrix.c ****     }
+  37:Core/Src/led_matrix.c ****     display_row(matrix_buffer[index]);
+  38:Core/Src/led_matrix.c **** 
+  39:Core/Src/led_matrix.c **** }
+  40:Core/Src/led_matrix.c **** 
+  41:Core/Src/led_matrix.c **** void display_row(uint8_t value) {
+  28              		.loc 1 41 33 view -0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 16
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              		.loc 1 41 33 is_stmt 0 view .LVU1
+  33 0000 30B5     		push	{r4, r5, lr}
+  34              	.LCFI0:
+  35              		.cfi_def_cfa_offset 12
+  36              		.cfi_offset 4, -12
+  37              		.cfi_offset 5, -8
+  38              		.cfi_offset 14, -4
+  39 0002 85B0     		sub	sp, sp, #20
+  40              	.LCFI1:
+  41              		.cfi_def_cfa_offset 32
+  42 0004 0546     		mov	r5, r0
+  42:Core/Src/led_matrix.c ****     uint16_t row_pin[] = {ROW0_Pin, ROW1_Pin, ROW2_Pin, ROW3_Pin, ROW4_Pin, ROW5_Pin, ROW6_Pin, ROW
+  43              		.loc 1 42 5 is_stmt 1 view .LVU2
+  44              		.loc 1 42 14 is_stmt 0 view .LVU3
+  45 0006 124B     		ldr	r3, .L8
+  46 0008 0FCB     		ldm	r3, {r0, r1, r2, r3}
+  47              	.LVL1:
+  48              		.loc 1 42 14 view .LVU4
+  49 000a 04AC     		add	r4, sp, #16
+  50 000c 04E90F00 		stmdb	r4, {r0, r1, r2, r3}
+  43:Core/Src/led_matrix.c **** 
+  44:Core/Src/led_matrix.c ****     for(int i = 0; i < MAX_LED_MATRIX; i++){
+  51              		.loc 1 44 5 is_stmt 1 view .LVU5
+  52              	.LBB2:
+  53              		.loc 1 44 9 view .LVU6
+  54              	.LVL2:
+  55              		.loc 1 44 13 is_stmt 0 view .LVU7
+  56 0010 0024     		movs	r4, #0
+  57              		.loc 1 44 5 view .LVU8
+  58 0012 09E0     		b	.L2
+  59              	.LVL3:
+  60              	.L3:
+  45:Core/Src/led_matrix.c ****         if(value & (1 << i)){
+  46:Core/Src/led_matrix.c ****             HAL_GPIO_WritePin(GPIOB, row_pin[i], SET);
+  47:Core/Src/led_matrix.c ****         }
+  48:Core/Src/led_matrix.c ****         else
+  49:Core/Src/led_matrix.c ****             HAL_GPIO_WritePin(GPIOB, row_pin[i], RESET);
+  61              		.loc 1 49 13 is_stmt 1 view .LVU9
+  62 0014 0022     		movs	r2, #0
+  63 0016 04AB     		add	r3, sp, #16
+  64 0018 03EB4403 		add	r3, r3, r4, lsl #1
+  65 001c 33F8101C 		ldrh	r1, [r3, #-16]
+  66 0020 0C48     		ldr	r0, .L8+4
+ARM GAS  C:\Users\tiend\AppData\Local\Temp\ccf7DAI8.s 			page 3
+
+
+  67 0022 FFF7FEFF 		bl	HAL_GPIO_WritePin
+  68              	.LVL4:
+  69              	.L4:
+  44:Core/Src/led_matrix.c ****         if(value & (1 << i)){
+  70              		.loc 1 44 40 discriminator 2 view .LVU10
+  44:Core/Src/led_matrix.c ****         if(value & (1 << i)){
+  71              		.loc 1 44 41 is_stmt 0 discriminator 2 view .LVU11
+  72 0026 0134     		adds	r4, r4, #1
+  73              	.LVL5:
+  74              	.L2:
+  44:Core/Src/led_matrix.c ****         if(value & (1 << i)){
+  75              		.loc 1 44 20 is_stmt 1 discriminator 1 view .LVU12
+  44:Core/Src/led_matrix.c ****         if(value & (1 << i)){
+  76              		.loc 1 44 5 is_stmt 0 discriminator 1 view .LVU13
+  77 0028 072C     		cmp	r4, #7
+  78 002a 0EDC     		bgt	.L7
+  45:Core/Src/led_matrix.c ****         if(value & (1 << i)){
+  79              		.loc 1 45 9 is_stmt 1 view .LVU14
+  45:Core/Src/led_matrix.c ****         if(value & (1 << i)){
+  80              		.loc 1 45 12 is_stmt 0 view .LVU15
+  81 002c 45FA04F3 		asr	r3, r5, r4
+  45:Core/Src/led_matrix.c ****         if(value & (1 << i)){
+  82              		.loc 1 45 11 view .LVU16
+  83 0030 13F0010F 		tst	r3, #1
+  84 0034 EED0     		beq	.L3
+  46:Core/Src/led_matrix.c ****         }
+  85              		.loc 1 46 13 is_stmt 1 view .LVU17
+  86 0036 0122     		movs	r2, #1
+  87 0038 04AB     		add	r3, sp, #16
+  88 003a 03EB4403 		add	r3, r3, r4, lsl #1
+  89 003e 33F8101C 		ldrh	r1, [r3, #-16]
+  90 0042 0448     		ldr	r0, .L8+4
+  91 0044 FFF7FEFF 		bl	HAL_GPIO_WritePin
+  92              	.LVL6:
+  93 0048 EDE7     		b	.L4
+  94              	.L7:
+  95              	.LBE2:
+  50:Core/Src/led_matrix.c ****     }
+  51:Core/Src/led_matrix.c **** }...
+  96              		.loc 1 51 1 is_stmt 0 view .LVU18
+  97 004a 05B0     		add	sp, sp, #20
+  98              	.LCFI2:
+  99              		.cfi_def_cfa_offset 12
+ 100              		@ sp needed
+ 101 004c 30BD     		pop	{r4, r5, pc}
+ 102              	.LVL7:
+ 103              	.L9:
+ 104              		.loc 1 51 1 view .LVU19
+ 105 004e 00BF     		.align	2
+ 106              	.L8:
+ 107 0050 00000000 		.word	.LANCHOR0
+ 108 0054 000C0140 		.word	1073810432
+ 109              		.cfi_endproc
+ 110              	.LFE66:
+ 112              		.section	.text.updateLEDMatrix,"ax",%progbits
+ 113              		.align	1
+ 114              		.global	updateLEDMatrix
+ARM GAS  C:\Users\tiend\AppData\Local\Temp\ccf7DAI8.s 			page 4
+
+
+ 115              		.syntax unified
+ 116              		.thumb
+ 117              		.thumb_func
+ 119              	updateLEDMatrix:
+ 120              	.LVL8:
+ 121              	.LFB65:
+   7:Core/Src/led_matrix.c **** void updateLEDMatrix (int index ) {
+ 122              		.loc 1 7 35 is_stmt 1 view -0
+ 123              		.cfi_startproc
+ 124              		@ args = 0, pretend = 0, frame = 0
+ 125              		@ frame_needed = 0, uses_anonymous_args = 0
+   7:Core/Src/led_matrix.c **** void updateLEDMatrix (int index ) {
+ 126              		.loc 1 7 35 is_stmt 0 view .LVU21
+ 127 0000 10B5     		push	{r4, lr}
+ 128              	.LCFI3:
+ 129              		.cfi_def_cfa_offset 8
+ 130              		.cfi_offset 4, -8
+ 131              		.cfi_offset 14, -4
+ 132 0002 0446     		mov	r4, r0
+   8:Core/Src/led_matrix.c ****     HAL_GPIO_WritePin(GPIOA, ENM0_Pin|ENM1_Pin | ENM2_Pin|ENM3_Pin|ENM4_Pin|ENM5_Pin|ENM6_Pin|ENM7_
+ 133              		.loc 1 8 5 is_stmt 1 view .LVU22
+ 134 0004 0122     		movs	r2, #1
+ 135 0006 4FF60C41 		movw	r1, #64524
+ 136 000a 2248     		ldr	r0, .L22
+ 137              	.LVL9:
+   8:Core/Src/led_matrix.c ****     HAL_GPIO_WritePin(GPIOA, ENM0_Pin|ENM1_Pin | ENM2_Pin|ENM3_Pin|ENM4_Pin|ENM5_Pin|ENM6_Pin|ENM7_
+ 138              		.loc 1 8 5 is_stmt 0 view .LVU23
+ 139 000c FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 140              	.LVL10:
+   9:Core/Src/led_matrix.c ****     switch(index){
+ 141              		.loc 1 9 5 is_stmt 1 view .LVU24
+ 142 0010 072C     		cmp	r4, #7
+ 143 0012 0AD8     		bhi	.L11
+ 144 0014 DFE804F0 		tbb	[pc, r4]
+ 145              	.L13:
+ 146 0018 04       		.byte	(.L20-.L13)/2
+ 147 0019 0E       		.byte	(.L19-.L13)/2
+ 148 001a 14       		.byte	(.L18-.L13)/2
+ 149 001b 1B       		.byte	(.L17-.L13)/2
+ 150 001c 22       		.byte	(.L16-.L13)/2
+ 151 001d 29       		.byte	(.L15-.L13)/2
+ 152 001e 30       		.byte	(.L14-.L13)/2
+ 153 001f 37       		.byte	(.L12-.L13)/2
+ 154              		.p2align 1
+ 155              	.L20:
+  11:Core/Src/led_matrix.c ****             HAL_GPIO_WritePin(ENM0_GPIO_Port, ENM0_Pin, RESET);
+ 156              		.loc 1 11 13 view .LVU25
+ 157 0020 0022     		movs	r2, #0
+ 158 0022 0421     		movs	r1, #4
+ 159 0024 1B48     		ldr	r0, .L22
+ 160 0026 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 161              	.LVL11:
+  12:Core/Src/led_matrix.c ****             break;
+ 162              		.loc 1 12 13 view .LVU26
+ 163              	.L11:
+  37:Core/Src/led_matrix.c ****     display_row(matrix_buffer[index]);
+ 164              		.loc 1 37 5 view .LVU27
+ARM GAS  C:\Users\tiend\AppData\Local\Temp\ccf7DAI8.s 			page 5
+
+
+ 165 002a 1B4B     		ldr	r3, .L22+4
+ 166 002c 185D     		ldrb	r0, [r3, r4]	@ zero_extendqisi2
+ 167 002e FFF7FEFF 		bl	display_row
+ 168              	.LVL12:
+  39:Core/Src/led_matrix.c **** }
+ 169              		.loc 1 39 1 is_stmt 0 view .LVU28
+ 170 0032 10BD     		pop	{r4, pc}
+ 171              	.LVL13:
+ 172              	.L19:
+  14:Core/Src/led_matrix.c ****             HAL_GPIO_WritePin(ENM1_GPIO_Port, ENM1_Pin, RESET);
+ 173              		.loc 1 14 13 is_stmt 1 view .LVU29
+ 174 0034 0022     		movs	r2, #0
+ 175 0036 0821     		movs	r1, #8
+ 176 0038 1648     		ldr	r0, .L22
+ 177 003a FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 178              	.LVL14:
+  15:Core/Src/led_matrix.c ****             break;        
+ 179              		.loc 1 15 13 view .LVU30
+ 180 003e F4E7     		b	.L11
+ 181              	.L18:
+  17:Core/Src/led_matrix.c ****             HAL_GPIO_WritePin(ENM2_GPIO_Port, ENM2_Pin, RESET);
+ 182              		.loc 1 17 13 view .LVU31
+ 183 0040 0022     		movs	r2, #0
+ 184 0042 4FF48061 		mov	r1, #1024
+ 185 0046 1348     		ldr	r0, .L22
+ 186 0048 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 187              	.LVL15:
+  18:Core/Src/led_matrix.c ****             break; 
+ 188              		.loc 1 18 13 view .LVU32
+ 189 004c EDE7     		b	.L11
+ 190              	.L17:
+  20:Core/Src/led_matrix.c ****             HAL_GPIO_WritePin(ENM3_GPIO_Port, ENM3_Pin, RESET);
+ 191              		.loc 1 20 13 view .LVU33
+ 192 004e 0022     		movs	r2, #0
+ 193 0050 4FF40061 		mov	r1, #2048
+ 194 0054 0F48     		ldr	r0, .L22
+ 195 0056 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 196              	.LVL16:
+  21:Core/Src/led_matrix.c ****             break; 
+ 197              		.loc 1 21 13 view .LVU34
+ 198 005a E6E7     		b	.L11
+ 199              	.L16:
+  23:Core/Src/led_matrix.c ****             HAL_GPIO_WritePin(ENM4_GPIO_Port, ENM4_Pin, RESET);
+ 200              		.loc 1 23 13 view .LVU35
+ 201 005c 0022     		movs	r2, #0
+ 202 005e 4FF48051 		mov	r1, #4096
+ 203 0062 0C48     		ldr	r0, .L22
+ 204 0064 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 205              	.LVL17:
+  24:Core/Src/led_matrix.c ****             break; 
+ 206              		.loc 1 24 13 view .LVU36
+ 207 0068 DFE7     		b	.L11
+ 208              	.L15:
+  26:Core/Src/led_matrix.c ****             HAL_GPIO_WritePin(ENM5_GPIO_Port, ENM5_Pin, RESET);
+ 209              		.loc 1 26 13 view .LVU37
+ 210 006a 0022     		movs	r2, #0
+ 211 006c 4FF40051 		mov	r1, #8192
+ARM GAS  C:\Users\tiend\AppData\Local\Temp\ccf7DAI8.s 			page 6
+
+
+ 212 0070 0848     		ldr	r0, .L22
+ 213 0072 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 214              	.LVL18:
+  27:Core/Src/led_matrix.c ****             break; 
+ 215              		.loc 1 27 13 view .LVU38
+ 216 0076 D8E7     		b	.L11
+ 217              	.L14:
+  29:Core/Src/led_matrix.c ****             HAL_GPIO_WritePin(ENM6_GPIO_Port, ENM6_Pin, RESET);
+ 218              		.loc 1 29 13 view .LVU39
+ 219 0078 0022     		movs	r2, #0
+ 220 007a 4FF48041 		mov	r1, #16384
+ 221 007e 0548     		ldr	r0, .L22
+ 222 0080 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 223              	.LVL19:
+  30:Core/Src/led_matrix.c ****             break; 
+ 224              		.loc 1 30 13 view .LVU40
+ 225 0084 D1E7     		b	.L11
+ 226              	.L12:
+  32:Core/Src/led_matrix.c ****             HAL_GPIO_WritePin(ENM7_GPIO_Port, ENM7_Pin, RESET);
+ 227              		.loc 1 32 13 view .LVU41
+ 228 0086 0022     		movs	r2, #0
+ 229 0088 4FF40041 		mov	r1, #32768
+ 230 008c 0148     		ldr	r0, .L22
+ 231 008e FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 232              	.LVL20:
+  33:Core/Src/led_matrix.c ****             break;         
+ 233              		.loc 1 33 13 view .LVU42
+ 234 0092 CAE7     		b	.L11
+ 235              	.L23:
+ 236              		.align	2
+ 237              	.L22:
+ 238 0094 00080140 		.word	1073809408
+ 239 0098 00000000 		.word	.LANCHOR1
+ 240              		.cfi_endproc
+ 241              	.LFE65:
+ 243              		.global	matrix_buffer
+ 244              		.global	index_led_matrix
+ 245              		.global	MAX_LED_MATRIX
+ 246              		.section	.rodata
+ 247              		.align	2
+ 248              		.set	.LANCHOR0,. + 0
+ 249              	.LC0:
+ 250 0000 0001     		.short	256
+ 251 0002 0002     		.short	512
+ 252 0004 0004     		.short	1024
+ 253 0006 0008     		.short	2048
+ 254 0008 0010     		.short	4096
+ 255 000a 0020     		.short	8192
+ 256 000c 0040     		.short	16384
+ 257 000e 0080     		.short	-32768
+ 258              		.section	.bss.index_led_matrix,"aw",%nobits
+ 259              		.align	2
+ 262              	index_led_matrix:
+ 263 0000 00000000 		.space	4
+ 264              		.section	.data.matrix_buffer,"aw"
+ 265              		.align	2
+ 266              		.set	.LANCHOR1,. + 0
+ARM GAS  C:\Users\tiend\AppData\Local\Temp\ccf7DAI8.s 			page 7
+
+
+ 269              	matrix_buffer:
+ 270 0000 00FC1211 		.ascii	"\000\374\022\021\021\022\374\000"
+ 270      1112FC00 
+ 271              		.section	.rodata.MAX_LED_MATRIX,"a"
+ 272              		.align	2
+ 275              	MAX_LED_MATRIX:
+ 276 0000 08000000 		.word	8
+ 277              		.text
+ 278              	.Letext0:
+ 279              		.file 2 "c:\\arm-gcc\\arm-none-eabi\\include\\machine\\_default_types.h"
+ 280              		.file 3 "c:\\arm-gcc\\arm-none-eabi\\include\\sys\\_stdint.h"
+ 281              		.file 4 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103x6.h"
+ 282              		.file 5 "Core/Inc/led_matrix.h"
+ 283              		.file 6 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h"
+ 284              		.file 7 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_gpio.h"
+ARM GAS  C:\Users\tiend\AppData\Local\Temp\ccf7DAI8.s 			page 8
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 led_matrix.c
+C:\Users\tiend\AppData\Local\Temp\ccf7DAI8.s:18     .text.display_row:00000000 $t
+C:\Users\tiend\AppData\Local\Temp\ccf7DAI8.s:24     .text.display_row:00000000 display_row
+C:\Users\tiend\AppData\Local\Temp\ccf7DAI8.s:107    .text.display_row:00000050 $d
+C:\Users\tiend\AppData\Local\Temp\ccf7DAI8.s:113    .text.updateLEDMatrix:00000000 $t
+C:\Users\tiend\AppData\Local\Temp\ccf7DAI8.s:119    .text.updateLEDMatrix:00000000 updateLEDMatrix
+C:\Users\tiend\AppData\Local\Temp\ccf7DAI8.s:146    .text.updateLEDMatrix:00000018 $d
+C:\Users\tiend\AppData\Local\Temp\ccf7DAI8.s:154    .text.updateLEDMatrix:00000020 $t
+C:\Users\tiend\AppData\Local\Temp\ccf7DAI8.s:238    .text.updateLEDMatrix:00000094 $d
+C:\Users\tiend\AppData\Local\Temp\ccf7DAI8.s:269    .data.matrix_buffer:00000000 matrix_buffer
+C:\Users\tiend\AppData\Local\Temp\ccf7DAI8.s:262    .bss.index_led_matrix:00000000 index_led_matrix
+C:\Users\tiend\AppData\Local\Temp\ccf7DAI8.s:275    .rodata.MAX_LED_MATRIX:00000000 MAX_LED_MATRIX
+C:\Users\tiend\AppData\Local\Temp\ccf7DAI8.s:247    .rodata:00000000 $d
+C:\Users\tiend\AppData\Local\Temp\ccf7DAI8.s:259    .bss.index_led_matrix:00000000 $d
+C:\Users\tiend\AppData\Local\Temp\ccf7DAI8.s:265    .data.matrix_buffer:00000000 $d
+C:\Users\tiend\AppData\Local\Temp\ccf7DAI8.s:272    .rodata.MAX_LED_MATRIX:00000000 $d
+
+UNDEFINED SYMBOLS
+HAL_GPIO_WritePin
